@@ -1,0 +1,194 @@
+---
+title: Setting up Microsoft Teams Channel
+description: Configure Microsoft Teams integration for collaborative documentation
+---
+
+## Overview
+
+Integrating Microsoft Teams with your documentation platform enables seamless collaboration and real-time communication. This guide walks you through setting up a Teams channel for documentation workflows.
+
+## Prerequisites
+
+Before you begin, ensure you have:
+- Microsoft Teams admin permissions
+- Access to your organization's Teams environment
+- Documentation platform admin access
+- Azure AD tenant information
+
+## Step 1: Create a Dedicated Teams Channel
+
+### Create a New Team
+1. Open Microsoft Teams
+2. Click on **Teams** in the left sidebar
+3. Select **Join or create a team**
+4. Choose **Create team** > **From scratch**
+5. Select team type:
+   - **Private**: For internal documentation teams
+   - **Public**: For organization-wide documentation
+
+### Configure Team Settings
+```
+Team Name: Documentation Hub
+Description: Central hub for documentation collaboration
+Privacy: [Select based on your needs]
+```
+
+### Add Team Members
+1. Click **Add members**
+2. Search for team members by name or email
+3. Assign appropriate roles:
+   - **Owner**: Documentation managers
+   - **Member**: Content contributors
+
+## Step 2: Create Documentation Channels
+
+Organize your team with specific channels:
+
+### Recommended Channel Structure
+- **#general**: Announcements and discussions
+- **#content-review**: Document review workflows
+- **#publishing**: Publishing notifications
+- **#help-support**: Technical support
+- **#templates**: Shared templates and resources
+
+### Creating Channels
+1. Click the **...** next to your team name
+2. Select **Add channel**
+3. Configure channel settings:
+   - Channel name
+   - Description
+   - Privacy settings
+   - Auto-show for all members
+
+## Step 3: Configure Integration
+
+### Enable App Integration
+1. Navigate to Teams Admin Center
+2. Go to **Teams apps** > **Setup policies**
+3. Create or edit a policy
+4. Add your documentation app to allowed apps
+
+### Install Documentation App
+```powershell
+# Using Teams PowerShell module
+Install-Module -Name MicrosoftTeams
+Connect-MicrosoftTeams
+
+# Install app for team
+Add-TeamsAppInstallation -AppId <YourAppId> -TeamId <YourTeamId>
+```
+
+### Configure Webhooks
+1. In your channel, click **...** > **Connectors**
+2. Search for **Incoming Webhook**
+3. Click **Configure**
+4. Provide a name and optional image
+5. Copy the webhook URL for later use
+
+## Step 4: Set Up Notifications
+
+### Configure Notification Types
+- **New Content**: Alert when new documents are created
+- **Reviews Required**: Notify reviewers of pending reviews
+- **Publishing Updates**: Announce published content
+- **System Alerts**: Technical notifications
+
+### Notification Settings
+```json
+{
+  "notifications": {
+    "newContent": {
+      "enabled": true,
+      "channel": "#content-review",
+      "mentions": ["@reviewers"]
+    },
+    "publishing": {
+      "enabled": true,
+      "channel": "#publishing",
+      "includeLink": true
+    }
+  }
+}
+```
+
+## Step 5: Establish Workflows
+
+### Document Review Workflow
+1. Author creates content
+2. Notification sent to #content-review
+3. Reviewers provide feedback in Teams
+4. Author addresses feedback
+5. Final approval in Teams
+6. Content published
+
+### Collaborative Editing
+- Use Teams chat for real-time discussion
+- Share document links in channels
+- Track changes through Teams activity
+- Maintain version history
+
+## Step 6: Security and Compliance
+
+### Access Control
+- Review team membership regularly
+- Use private channels for sensitive content
+- Enable guest access only when necessary
+- Configure external sharing policies
+
+### Data Governance
+```powershell
+# Set retention policy
+New-RetentionCompliancePolicy -Name "Documentation Retention" -TeamsMeetingLocation "All" -TeamsChannelLocation "All"
+```
+
+### Compliance Features
+- Enable data loss prevention (DLP)
+- Configure sensitivity labels
+- Set up eDiscovery policies
+- Monitor audit logs
+
+## Best Practices
+
+### Channel Management
+- Keep channels focused on specific topics
+- Archive inactive channels
+- Use channel descriptions effectively
+- Pin important messages
+
+### Communication Guidelines
+- Establish posting guidelines
+- Use @mentions judiciously
+- Leverage Teams features (polls, tasks)
+- Regular team meetings
+
+### Integration Tips
+- Test webhooks regularly
+- Monitor integration performance
+- Keep authentication tokens secure
+- Document custom configurations
+
+## Troubleshooting
+
+### Common Issues
+
+**Integration Not Working**
+- Verify app permissions
+- Check webhook URL validity
+- Review firewall settings
+- Confirm API endpoints
+
+**Notifications Not Sending**
+- Check channel notification settings
+- Verify webhook configuration
+- Review message formatting
+- Test with simple payload
+
+**Access Issues**
+- Confirm team membership
+- Check Azure AD permissions
+- Review guest access policies
+- Verify app installation
+
+## Next Steps
+
+With Teams integration complete, proceed to [Connecting SharePoint](/it-setup/connecting-sharepoint) for document storage configuration.
