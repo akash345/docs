@@ -343,6 +343,73 @@ Use updates for changelogs:
 - Resolved authentication timeout problems
 </Update>
 
+## Navigation structure guidelines
+
+### Basic navigation configuration
+
+The docs.json file controls the documentation site navigation. Basic structure:
+
+```json
+{
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": ["quickstart", "installation"]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Creating nested navigation groups
+
+When organizing related documentation pages (like environment-specific configurations), use nested groups:
+
+```json
+{
+  "group": "IT Set Up",
+  "pages": [
+    "it-setup/general-setup",
+    {
+      "group": "Connecting SharePoint",
+      "icon": "share-nodes",
+      "pages": [
+        "it-setup/connecting-sharepoint/commercial",
+        "it-setup/connecting-sharepoint/gcc-gcchigh"
+      ]
+    },
+    "it-setup/other-setup"
+  ]
+}
+```
+
+### Navigation best practices
+
+- Use nested groups when you have 2+ related pages that share a common category
+- Add descriptive icons to nested groups for visual hierarchy
+- Keep nesting to 2-3 levels maximum for better user experience
+- Use clear, action-oriented group names (e.g., "Connecting SharePoint" vs just "SharePoint")
+- Organize pages from general to specific within each group
+- Consider user workflow when ordering pages and groups
+
+### When to use nested groups vs separate files
+
+**Use nested groups when:**
+- Pages cover the same feature for different environments (Commercial, GCC, GCCHigh)
+- Content is variations of the same process
+- Users need to choose between mutually exclusive options
+
+**Use separate files when:**
+- Content is completely independent
+- Pages cover different features or topics
+- All users need to read all pages in sequence
+
 ## Required page structure
 
 Every documentation page must begin with YAML frontmatter:

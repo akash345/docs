@@ -26,7 +26,14 @@
             "group": "IT Set Up",
             "pages": [
               "it-setup/setting-up-microsoft-teams",
-              "it-setup/connecting-sharepoint",
+              {
+                "group": "Connecting SharePoint",
+                "icon": "share-nodes",
+                "pages": [
+                  "it-setup/connecting-sharepoint/commercial",
+                  "it-setup/connecting-sharepoint/gcc-gcchigh"
+                ]
+              },
               "it-setup/deploying-word-addon"
             ]
           },
