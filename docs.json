@@ -11,58 +11,32 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
             "pages": [
-              "index",
               "quickstart",
-              "development"
+              "capabilities",
+              "best-practices",
+              "building-content-library"
             ]
           },
           {
-            "group": "Customization",
+            "group": "IT Set Up",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "it-setup/setting-up-microsoft-teams",
+              "it-setup/connecting-sharepoint",
+              "it-setup/deploying-word-addon"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Writing Content",
             "pages": [
               "essentials/markdown",
               "essentials/code",
               "essentials/images",
               "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
             ]
           }
         ]
