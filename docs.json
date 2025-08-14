@@ -25,16 +25,14 @@
           {
             "group": "IT Set Up",
             "pages": [
-              "it-setup/setting-up-microsoft-teams",
               {
-                "group": "Connecting SharePoint",
+                "group": "Setting up Shared Microsoft Teams Chat",
                 "icon": "share-nodes",
                 "pages": [
-                  "it-setup/connecting-sharepoint/commercial",
-                  "it-setup/connecting-sharepoint/gcc-gcchigh"
+                  "it-setup/setting-up-teams-chat/commercial",
+                  "it-setup/setting-up-teams-chat/gcc-gcchigh"
                 ]
-              },
-              "it-setup/deploying-word-addon"
+              }
             ]
           },
           {
